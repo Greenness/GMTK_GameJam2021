@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
 
     public bool isGrounded;
     public bool isDamaged;
+    private float lastTimeHurt;
 
 
     // Start is called before the first frame update
@@ -41,6 +42,7 @@ public class PlayerController : MonoBehaviour
         speed = 7;
         health = 10;
         massLoss = 1;
+        lastTimeHurt = Time.time;
     }
 
     // Update is called once per frame
@@ -101,6 +103,14 @@ public class PlayerController : MonoBehaviour
         gameControllerInstance.GetComponent<GameControl>().shootNewBullet(transform.position, bulletVelocity);
     }
 
+    void hurtByEnemy()
+    {
+        if (Time.time - lastTimeHurt >= 1.0) {
+            lastTimeHurt = Time.time;
+            health--;
+        }
+    }
+
     void recover()
     {
         //Reset health and recoil
@@ -127,13 +137,15 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("IsGrounded", isGrounded);
         animator.SetBool("IsDamaged", isDamaged);
     }
-    
-    // adds 1 health when encounters a health pick up
+
     void OnCollisionEnter2D(Collision2D collision) {
          GameObject collidedObj = collision.gameObject;
-
+         
          if (collidedObj.tag == "Health Pickup") {
            health += 1.0f;
-         }
+         } else if (collidedObj.tag == "Enemy") {
+            hurtByEnemy();
+        }
     }
+
 }
