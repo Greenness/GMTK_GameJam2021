@@ -1312,11 +1312,6 @@ PrefabInstance:
       propertyPath: platformMask.m_Bits
       value: 64
       objectReference: {fileID: 0}
-    - target: {fileID: 7225017113567484848, guid: 10798b4a54d58f24588b197f8ba8b6fd,
-        type: 3}
-      propertyPath: gameControllerInstance
-      value: 
-      objectReference: {fileID: 1131995509}
     - target: {fileID: 7225017113567484850, guid: 10798b4a54d58f24588b197f8ba8b6fd,
         type: 3}
       propertyPath: m_Color.b
