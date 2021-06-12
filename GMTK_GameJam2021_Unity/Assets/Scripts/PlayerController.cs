@@ -127,4 +127,13 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("IsGrounded", isGrounded);
         animator.SetBool("IsDamaged", isDamaged);
     }
+    
+    // adds 1 health when encounters a health pick up
+    void OnCollisionEnter2D(Collision2D collision) {
+         GameObject collidedObj = collision.gameObject;
+
+         if (collidedObj.tag == "Health Pickup") {
+           health += 1.0f;
+         }
+    }
 }
