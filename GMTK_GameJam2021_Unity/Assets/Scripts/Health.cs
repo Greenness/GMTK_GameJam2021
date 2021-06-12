@@ -11,7 +11,7 @@ public class Health : MonoBehaviour
          GameObject collidedObj = collision.gameObject;
 
          if (collidedObj.tag == "Player") {
-            HealthPos.localScale = new Vector3(0,0);
+            gameObject.SetActive(false);
          }
     }
 }
