@@ -482,21 +482,9 @@ Transform:
   m_Father: {fileID: 581886996}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &953699522 stripped
-BoxCollider2D:
-  m_CorrespondingSourceObject: {fileID: 7225017113567484852, guid: 10798b4a54d58f24588b197f8ba8b6fd,
-    type: 3}
-  m_PrefabInstance: {fileID: 7225017112901097334}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &953699525 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7225017113567484851, guid: 10798b4a54d58f24588b197f8ba8b6fd,
-    type: 3}
-  m_PrefabInstance: {fileID: 7225017112901097334}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &953699527 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 953699527, guid: 10798b4a54d58f24588b197f8ba8b6fd,
     type: 3}
   m_PrefabInstance: {fileID: 7225017112901097334}
   m_PrefabAsset: {fileID: 0}
@@ -1281,39 +1269,9 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7225017113567484848, guid: 10798b4a54d58f24588b197f8ba8b6fd,
         type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 953699527}
-    - target: {fileID: 7225017113567484848, guid: 10798b4a54d58f24588b197f8ba8b6fd,
-        type: 3}
-      propertyPath: collider2D
-      value: 
-      objectReference: {fileID: 953699522}
-    - target: {fileID: 7225017113567484848, guid: 10798b4a54d58f24588b197f8ba8b6fd,
-        type: 3}
-      propertyPath: platformMask.m_Bits
-      value: 64
-      objectReference: {fileID: 0}
-    - target: {fileID: 7225017113567484848, guid: 10798b4a54d58f24588b197f8ba8b6fd,
-        type: 3}
       propertyPath: gameControllerInstance
       value: 
       objectReference: {fileID: 1131995509}
-    - target: {fileID: 7225017113567484850, guid: 10798b4a54d58f24588b197f8ba8b6fd,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7225017113567484850, guid: 10798b4a54d58f24588b197f8ba8b6fd,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7225017113567484850, guid: 10798b4a54d58f24588b197f8ba8b6fd,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7225017113567484851, guid: 10798b4a54d58f24588b197f8ba8b6fd,
         type: 3}
       propertyPath: m_RootOrder
