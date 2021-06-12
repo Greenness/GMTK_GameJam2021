@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 262618986}
   m_Layer: 6
   m_Name: Wall Left
-  m_TagString: Untagged
+  m_TagString: Obstacles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -344,7 +344,7 @@ GameObject:
   - component: {fileID: 581886996}
   m_Layer: 6
   m_Name: Obstacles
-  m_TagString: Untagged
+  m_TagString: Obstacles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -384,7 +384,7 @@ GameObject:
   - component: {fileID: 887132717}
   m_Layer: 6
   m_Name: Wall Right
-  m_TagString: Untagged
+  m_TagString: Obstacles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -500,8 +500,6 @@ Animator:
     type: 3}
   m_PrefabInstance: {fileID: 7225017112901097334}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
-=======
   m_GameObject: {fileID: 953699521}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -519,7 +517,6 @@ Animator:
   speed: 0
   health: 10
   massLoss: 2
->>>>>>> parent of 65ae90e (Merge pull request #1 from Greenness/PlayerAttack)
 --- !u!1 &962668570
 GameObject:
   m_ObjectHideFlags: 0
@@ -533,7 +530,7 @@ GameObject:
   - component: {fileID: 962668572}
   m_Layer: 6
   m_Name: Wall short (1)
-  m_TagString: Untagged
+  m_TagString: Obstacles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -687,7 +684,7 @@ GameObject:
   - component: {fileID: 1232379675}
   m_Layer: 6
   m_Name: Wall short
-  m_TagString: Untagged
+  m_TagString: Obstacles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -798,7 +795,7 @@ GameObject:
   - component: {fileID: 1242160100}
   m_Layer: 6
   m_Name: Ground (1)
-  m_TagString: Untagged
+  m_TagString: Obstacles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -909,7 +906,7 @@ GameObject:
   - component: {fileID: 1269261749}
   m_Layer: 6
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Obstacles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1020,7 +1017,7 @@ GameObject:
   - component: {fileID: 1431542526}
   m_Layer: 6
   m_Name: Ceiling
-  m_TagString: Untagged
+  m_TagString: Obstacles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1131,7 +1128,7 @@ GameObject:
   - component: {fileID: 1462126984}
   m_Layer: 6
   m_Name: Ground (2)
-  m_TagString: Untagged
+  m_TagString: Obstacles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1291,6 +1288,7 @@ LightingSettings:
   m_PVRFilteringAtrousPositionSigmaIndirect: 2
   m_PVRFilteringAtrousPositionSigmaAO: 1
 --- !u!1001 &7225017112901097334
+
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
