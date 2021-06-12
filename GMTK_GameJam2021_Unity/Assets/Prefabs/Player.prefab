@@ -181,7 +181,7 @@ MonoBehaviour:
   direction: -1
   speed: 0
   health: 10
-  massLoss: 2
+  massLoss: 1
   bulletSpeed: 15
   isGrounded: 0
   isDamaged: 0

@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
         direction = -1;
         speed = 7;
         health = 10;
-        massLoss = 2;
+        massLoss = 1;
     }
 
     // Update is called once per frame
@@ -74,11 +74,10 @@ public class PlayerController : MonoBehaviour
         //ATTACK
         //Mouse click control
         if (Input.GetButtonDown("Fire1")) {
-            recoil += massLoss;
             Vector3 trajectory = (recoil*direction) * aim;
             body2D.velocity = trajectory;
-            health -= 1;
-            recoil += massLoss;
+            health -= massLoss;
+            recoil += massLoss*2;
 
             shootBullet();
         }

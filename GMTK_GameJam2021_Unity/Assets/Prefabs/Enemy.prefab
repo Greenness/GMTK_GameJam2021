@@ -158,13 +158,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2270848339083535993}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 658fb94bcb831c040828a8bbe96b065d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   body2D: {fileID: 2270848339083535973}
   playerTransform: {fileID: 2270848339083535994}
+  radius: 2
   speed: 5
 --- !u!114 &7191753630832251570
 MonoBehaviour:
