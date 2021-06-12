@@ -22,12 +22,13 @@ public class BulletBehavior : MonoBehaviour
     }
 
     void OnCollisionEnter2D(Collision2D collision) {
-         GameObject collidedObj = collision.gameObject;
+        GameObject collidedObj = collision.gameObject;
 
-         if (collidedObj.tag == "Obstacles") {
-             gameObject.SetActive(false);
-         } else if (collidedObj.tag == "Enemy") {
-             //Logic for hitting enemies
-         }
+        if (collidedObj.tag == "Obstacles") {
+            gameObject.SetActive(false);
+        } else if (collidedObj.tag == "Enemy") {
+            gameObject.SetActive(false);
+            collidedObj.SetActive(false);
+        }
     }
 }
