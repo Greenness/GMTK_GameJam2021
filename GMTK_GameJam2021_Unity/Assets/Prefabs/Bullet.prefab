@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fea7b67ec97a1b0478f57d0305473c09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToPool: {fileID: 0}
+  objectToPool: {fileID: 2250521583627761825}
   pooledObjects: []
   startAmountToPool: 0
 --- !u!61 &4416146256142458281
