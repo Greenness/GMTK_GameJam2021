@@ -31,7 +31,8 @@ public class PlayerController : MonoBehaviour
     public bool isDamaged;
     public bool isThrowing;
     public bool facingLeft;
-    
+    private float lastTimeHurt;
+
 
     // Start is called before the first frame update
     void Start()
@@ -47,6 +48,7 @@ public class PlayerController : MonoBehaviour
         health = 10;
         massLoss = 1;
         facingLeft = false;
+        lastTimeHurt = Time.time;
     }
 
     // Update is called once per frame
@@ -112,6 +114,14 @@ public class PlayerController : MonoBehaviour
         gameControllerInstance.GetComponent<GameControl>().shootNewBullet(transform.position, bulletVelocity);
     }
 
+    void hurtByEnemy()
+    {
+        if (Time.time - lastTimeHurt >= 1.0) {
+            lastTimeHurt = Time.time;
+            health--;
+        }
+    }
+
     void recover()
     {
         //Reset health and recoil
@@ -148,4 +158,15 @@ public class PlayerController : MonoBehaviour
         }
         sprite.flipX = facingLeft;
     }
+
+    void OnCollisionEnter2D(Collision2D collision) {
+         GameObject collidedObj = collision.gameObject;
+         
+         if (collidedObj.tag == "Health Pickup") {
+           health += 1.0f;
+         } else if (collidedObj.tag == "Enemy") {
+            hurtByEnemy();
+        }
+    }
+
 }
