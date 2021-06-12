@@ -31,13 +31,6 @@ public class PlayerController : MonoBehaviour
     public bool isDamaged;
     public bool isThrowing;
     public bool facingLeft;
-
-    public AnimationClip[] walkClips;
-    public AnimationClip[] idleClips;
-    public AnimationClip[] risingClips;
-    public AnimationClip[] fallingClips;
-    public AnimationClip[] damagedClips;
-    public AnimationClip[] throwClips;
     
 
     // Start is called before the first frame update
