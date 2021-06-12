@@ -139,8 +139,11 @@ public class PlayerController : MonoBehaviour
     }
 
     void OnCollisionEnter2D(Collision2D collision) {
-        GameObject collidedObj = collision.gameObject;
-        if (collidedObj.tag == "Enemy") {
+         GameObject collidedObj = collision.gameObject;
+         
+         if (collidedObj.tag == "Health Pickup") {
+           health += 1.0f;
+         } else if (collidedObj.tag == "Enemy") {
             hurtByEnemy();
         }
     }
