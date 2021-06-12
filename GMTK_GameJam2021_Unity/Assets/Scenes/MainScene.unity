@@ -500,23 +500,6 @@ Animator:
     type: 3}
   m_PrefabInstance: {fileID: 7225017112901097334}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 953699521}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0df9cbc13d0c7eb48b4a96056d06a8bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  body2D: {fileID: 953699523}
-  playerTransform: {fileID: 953699525}
-  cam: {fileID: 0}
-  mousePosition: {x: 0, y: 0, z: 0}
-  playerPosition: {x: 0, y: 0, z: 0}
-  aim: {x: 0, y: 0, z: 0}
-  recoil: 20
-  direction: -1
-  speed: 0
-  health: 10
-  massLoss: 2
 --- !u!1 &962668570
 GameObject:
   m_ObjectHideFlags: 0
@@ -671,6 +654,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 856fa9cda363ba14db7a11201acd3c62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 2250521583627761825, guid: d3b4bf304e3c97a4f87c5ed103926d69,
+    type: 3}
 --- !u!1 &1232379674
 GameObject:
   m_ObjectHideFlags: 0
@@ -1288,7 +1273,6 @@ LightingSettings:
   m_PVRFilteringAtrousPositionSigmaIndirect: 2
   m_PVRFilteringAtrousPositionSigmaAO: 1
 --- !u!1001 &7225017112901097334
-
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -1310,6 +1294,11 @@ PrefabInstance:
       propertyPath: platformMask.m_Bits
       value: 64
       objectReference: {fileID: 0}
+    - target: {fileID: 7225017113567484848, guid: 10798b4a54d58f24588b197f8ba8b6fd,
+        type: 3}
+      propertyPath: gameControllerInstance
+      value: 
+      objectReference: {fileID: 1131995509}
     - target: {fileID: 7225017113567484850, guid: 10798b4a54d58f24588b197f8ba8b6fd,
         type: 3}
       propertyPath: m_Color.b
