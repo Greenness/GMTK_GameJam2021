@@ -19,6 +19,9 @@ public class PlayerController : MonoBehaviour
 
     public float health;
     public float massLoss;
+    public GameObject gameControllerInstance;
+    public float bulletSpeed = 15.0f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -70,6 +73,8 @@ public class PlayerController : MonoBehaviour
             body2D.velocity = trajectory;
             health -= 1;
             recoil += massLoss;
+
+            shootBullet();
         }
 
         //DEATH
@@ -77,5 +82,10 @@ public class PlayerController : MonoBehaviour
         if (health <= 0) {
             //gameObject.SetActive() = false;
         }
+    }
+
+    void shootBullet() {
+        Vector2 bulletVelocity = bulletSpeed * aim;
+        gameControllerInstance.GetComponent<GameControl>().shootNewBullet(transform.position, bulletVelocity);
     }
 }
