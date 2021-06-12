@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public Camera cam;
     public Animator animator;
     public GameObject gameControllerInstance;
+    public SpriteRenderer sprite;
 
     public Vector3 mousePosition;
     public Vector3 playerPosition;
@@ -20,6 +21,7 @@ public class PlayerController : MonoBehaviour
     public float recoil;
     public float direction;
     public float speed;
+    public float speedCap;
 
     public float health;
     public float massLoss;
@@ -27,6 +29,8 @@ public class PlayerController : MonoBehaviour
 
     public bool isGrounded;
     public bool isDamaged;
+    public bool isThrowing;
+    public bool facingLeft;
     private float lastTimeHurt;
 
 
@@ -39,9 +43,11 @@ public class PlayerController : MonoBehaviour
         //set defaults for main variables
         recoil = 20;
         direction = -1;
-        speed = 7;
+        speed = .05f;
+        speedCap = 50;
         health = 10;
         massLoss = 1;
+        facingLeft = false;
         lastTimeHurt = Time.time;
     }
 
@@ -59,19 +65,24 @@ public class PlayerController : MonoBehaviour
         aim = Vector3.Normalize(mousePosition - playerPosition);
 
         //Player MOVEMENT
-        //Move right
-        if (Input.GetKey("d"))
-        {
-            playerTransform.Translate (Vector3.right * speed * Time.deltaTime);
-            //body2D.velocity = new Vector2(speed, 0);
+        //speed cap
+        if (body2D.velocity.x < 50 && body2D.velocity.x > -50) {
+            //Move right
+            if (Input.GetKey("d"))
+            {
+                //playerTransform.Translate (Vector3.right * speed * Time.deltaTime);
+                body2D.velocity += Vector2.right * speed;
+            }
+
+            //Move left
+            if (Input.GetKey("a"))
+            {
+                //playerTransform.Translate (Vector3.left * speed * Time.deltaTime);
+                body2D.velocity += Vector2.left * speed;
+            }
         }
 
-        //Move left
-        if (Input.GetKey("a"))
-        {
-            playerTransform.Translate(Vector3.left * speed * Time.deltaTime);
-            //body2D.velocity = new Vector2 (-speed, 0);
-        }
+        
 
         //ATTACK
         //Mouse click control
@@ -136,6 +147,16 @@ public class PlayerController : MonoBehaviour
 
         animator.SetBool("IsGrounded", isGrounded);
         animator.SetBool("IsDamaged", isDamaged);
+        animator.SetBool("IsThrowing", isThrowing);
+
+        //Flip sprite
+        if (body2D.velocity.x > 0)
+        {
+            facingLeft = false;
+        } else if (body2D.velocity.x < 0) {
+            facingLeft = true;
+        }
+        sprite.flipX = facingLeft;
     }
 
     void OnCollisionEnter2D(Collision2D collision) {
