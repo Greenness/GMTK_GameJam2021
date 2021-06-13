@@ -50,6 +50,8 @@ public class PlayerController : MonoBehaviour
         facingLeft = false;
         lastTimeHurt = Time.time;
         color = new Color(1, 1, 1);
+
+        body2D = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -71,14 +73,14 @@ public class PlayerController : MonoBehaviour
             //Move right
             if (Input.GetKey("d"))
             {
-                //playerTransform.Translate (Vector3.right * speed * Time.deltaTime);
+                //playerTransform.position += Vector3.right * 6f * Time.deltaTime;
                 body2D.velocity += Vector2.right * speed;
             }
 
             //Move left
             if (Input.GetKey("a"))
             {
-                //playerTransform.Translate (Vector3.left * speed * Time.deltaTime);
+                //playerTransform.position += Vector3.left * 6f * Time.deltaTime;
                 body2D.velocity += Vector2.left * speed;
             }
         }
@@ -173,7 +175,7 @@ public class PlayerController : MonoBehaviour
          } else if (collidedObj.tag == "Enemy") {
             hurtByEnemy();
          } else if (collidedObj.tag == "Goal") {
-            this.gameControllerInstance.GetComponent<GameControl>().ResetGame();
+            this.gameControllerInstance.GetComponent<GameControl>().nextScene();
          }
     }
 
