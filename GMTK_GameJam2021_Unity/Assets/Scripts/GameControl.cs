@@ -18,6 +18,7 @@ public class GameControl : MonoBehaviour
     private bool clickToStart = true;
     private bool isGameOver = false;
     private bool isGamePaused = false;
+    public bool isStartScreen = false;
     
     // Start is called before the first frame update
     void Start()
@@ -29,6 +30,14 @@ public class GameControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Logic for the Start Screen
+        if (isStartScreen && Input.GetButtonDown("Jump")) {
+            nextScene();
+        } else if (!isStartScreen)
+        {
+            hideStartScreen();
+        }
+            
         if (clickToStart && Input.GetButtonDown("Jump")) {
             hideStartScreen();
         } else if (isGameOver && Input.GetButtonDown("Jump")) {
@@ -87,5 +96,15 @@ public class GameControl : MonoBehaviour
 
     public void ResetGame() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void nextScene()
+    {
+        string sceneName = SceneManager.GetActiveScene().name;
+        if (sceneName == "Level0") {
+            SceneManager.LoadScene("Level1");
+        } else {
+            SceneManager.LoadScene("Level0");
+        }
     }
 }
