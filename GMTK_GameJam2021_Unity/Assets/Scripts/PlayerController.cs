@@ -74,14 +74,14 @@ public class PlayerController : MonoBehaviour
             //Move right
             if (Input.GetKey("d"))
             {
-                //playerTransform.position += Vector3.right * 6f * Time.deltaTime;
+                playerTransform.position += Vector3.right * 6f * Time.deltaTime;
                 body2D.velocity += Vector2.right * speed;
             }
 
             //Move left
             if (Input.GetKey("a"))
             {
-                //playerTransform.position += Vector3.left * 6f * Time.deltaTime;
+                playerTransform.position += Vector3.left * 6f * Time.deltaTime;
                 body2D.velocity += Vector2.left * speed;
             }
         }
