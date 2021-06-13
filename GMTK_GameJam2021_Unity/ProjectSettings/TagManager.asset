@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Obstacles
   - Enemy
+  - Health Pickup
+  - Goal
   layers:
   - Default
   - TransparentFX

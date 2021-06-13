@@ -172,7 +172,9 @@ public class PlayerController : MonoBehaviour
            recover();
          } else if (collidedObj.tag == "Enemy") {
             hurtByEnemy();
-        }
+         } else if (collidedObj.tag == "Goal") {
+            this.gameControllerInstance.GetComponent<GameControl>().ResetGame();
+         }
     }
 
     void changeColor()

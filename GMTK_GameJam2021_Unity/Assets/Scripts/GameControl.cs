@@ -85,7 +85,7 @@ public class GameControl : MonoBehaviour
         Time.timeScale = 1;
     }
 
-    void ResetGame() {
+    public void ResetGame() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
