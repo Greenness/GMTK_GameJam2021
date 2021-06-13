@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
     public bool isThrowing;
     public bool facingLeft;
     private float lastTimeHurt;
+    public Color color;
 
     // Start is called before the first frame update
     void Start()
@@ -48,6 +49,7 @@ public class PlayerController : MonoBehaviour
         massLoss = 1;
         facingLeft = false;
         lastTimeHurt = Time.time;
+        color = new Color(1, 1, 1);
     }
 
     // Update is called once per frame
@@ -106,6 +108,7 @@ public class PlayerController : MonoBehaviour
         //ANIMATION
         isGrounded = GroundCheck();
         PlayerAnimation();
+        changeColor();
     }
 
     void shootBullet()
@@ -167,6 +170,14 @@ public class PlayerController : MonoBehaviour
          } else if (collidedObj.tag == "Enemy") {
             hurtByEnemy();
         }
+    }
+
+    void changeColor()
+    {
+        float colorOffset = 1 - (10 - health) / 10; ;
+        color.b = colorOffset;
+        color.g = colorOffset;
+        sprite.color = color;
     }
 
 }

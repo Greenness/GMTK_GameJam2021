@@ -9,11 +9,18 @@ public class CircleEnemy : MonoBehaviour
     public float radius = 2;
     public float speed = 5;
     float timeCounter = 0;
+    public Vector2 start;
+    
+    void Start ()
+    {
+        start = playerTransform.position;
+    }
+
     void Update () {
             timeCounter += Time.deltaTime;
             float x = radius + speed * Mathf.Cos (timeCounter);
             float y = radius + speed * Mathf.Sin (timeCounter);
-            playerTransform.position = new Vector2 (x,y);
+            playerTransform.position = new Vector2 (start.x + x, start.y + y);
     }
     
 }
