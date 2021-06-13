@@ -33,6 +33,8 @@ public class PlayerController : MonoBehaviour
     public bool facingLeft;
     private float lastTimeHurt;
 
+    public Vector3 velocity;
+
 
     // Start is called before the first frame update
     void Start()
@@ -54,6 +56,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        velocity = body2D.velocity;
+
         //get or update current player position
         playerPosition = playerTransform.position;
 

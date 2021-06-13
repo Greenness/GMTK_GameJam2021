@@ -5,6 +5,9 @@ using UnityEngine;
 public class BulletBehavior : MonoBehaviour
 {
     public Vector2 movement;
+    public SpriteRenderer sprite;
+    public float rotateSpeed = 3.0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,7 +17,7 @@ public class BulletBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        transform.Rotate(Vector3.forward * rotateSpeed);
     }
 
     void FixedUpdate() {
