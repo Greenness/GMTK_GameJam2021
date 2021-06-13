@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class EnemyBehavior : MonoBehaviour
 {
+
+    public Animator animator;
+    public bool isGhost;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +16,6 @@ public class EnemyBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        animator.SetBool("isGhost", isGhost);
     }
 }
