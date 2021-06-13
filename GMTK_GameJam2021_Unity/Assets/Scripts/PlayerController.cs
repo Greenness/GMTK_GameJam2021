@@ -86,7 +86,7 @@ public class PlayerController : MonoBehaviour
 
         //ATTACK
         //Mouse click control
-        if (Input.GetButtonDown("Fire1")) {
+        if (Input.GetButtonDown("Fire1") && Time.timeScale == 1) {
             Vector3 trajectory = (recoil*direction) * aim;
             body2D.velocity = trajectory;
             health -= massLoss;
@@ -100,7 +100,8 @@ public class PlayerController : MonoBehaviour
         if (health < 0)
         {
             //gameObject.SetActive() = false;
-            recover();
+            // recover();
+            this.gameControllerInstance.GetComponent<GameControl>().GameOver();
         }
 
         //ANIMATION
