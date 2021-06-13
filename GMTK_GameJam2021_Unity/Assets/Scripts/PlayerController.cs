@@ -33,9 +33,6 @@ public class PlayerController : MonoBehaviour
     public bool facingLeft;
     private float lastTimeHurt;
 
-    public Vector3 velocity;
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -56,8 +53,6 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        velocity = body2D.velocity;
-
         //get or update current player position
         playerPosition = playerTransform.position;
 
@@ -145,13 +140,13 @@ public class PlayerController : MonoBehaviour
 
     void PlayerAnimation()
     {
-        animator.SetInteger("VelocityX", (int)body2D.velocity.x);
-        animator.SetInteger("VelocityY", (int)body2D.velocity.y);
+        animator.SetFloat("VelocityX", Mathf.Abs(body2D.velocity.x));
+        animator.SetFloat("VelocityY", body2D.velocity.y);
         animator.SetInteger("Health", (int)health);
 
         animator.SetBool("IsGrounded", isGrounded);
-        animator.SetBool("IsDamaged", isDamaged);
-        animator.SetBool("IsThrowing", isThrowing);
+        //animator.SetBool("IsDamaged", isDamaged);
+        //animator.SetBool("IsThrowing", isThrowing);
 
         //Flip sprite
         if (body2D.velocity.x > 0)
