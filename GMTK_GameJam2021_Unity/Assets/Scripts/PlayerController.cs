@@ -169,7 +169,7 @@ public class PlayerController : MonoBehaviour
          GameObject collidedObj = collision.gameObject;
          
          if (collidedObj.tag == "Health Pickup") {
-           health += 1.0f;
+           recover();
          } else if (collidedObj.tag == "Enemy") {
             hurtByEnemy();
         }
