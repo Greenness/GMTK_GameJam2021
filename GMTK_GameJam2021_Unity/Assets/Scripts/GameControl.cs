@@ -9,7 +9,7 @@ public class GameControl : MonoBehaviour
     
     ObjectPooler bulletPooler;
     public GameObject bulletPrefab;
-    public TextMeshProUGUI GameOverText, StartScreenText, StartScreenSubText, PauseScreen, HealthText, LevelText;
+    public TextMeshProUGUI GameOverText, StartScreenText, StartScreenSubText, PauseScreen, HealthText, LevelText, WinScreen;
     public GameObject BoneSprite;
     public GameObject StartScreenBackdrop;
 
@@ -19,6 +19,8 @@ public class GameControl : MonoBehaviour
     private bool isGameOver = false;
     private bool isGamePaused = false;
     public bool isStartScreen = false;
+    private bool isGameWon = false;
+    private bool startTime = false;
     
     // Start is called before the first frame update
     void Start()
@@ -34,7 +36,11 @@ public class GameControl : MonoBehaviour
         if (isStartScreen && Input.GetButtonDown("Jump")) {
             nextScene();
         } else if (!isStartScreen)
-        {
+        {   
+            if (!startTime) {
+                startTime = true;
+                Time.timeScale = 1;
+            }
             hideStartScreen();
         }
             
@@ -42,6 +48,8 @@ public class GameControl : MonoBehaviour
             hideStartScreen();
         } else if (isGameOver && Input.GetButtonDown("Jump")) {
             ResetGame();
+        } else if (isGameWon && Input.GetButtonDown("Jump")) {
+            nextScene();
         } else if (Input.GetButtonDown("Jump")) {
             isGamePaused = !isGamePaused;
             PauseGame();
@@ -91,7 +99,6 @@ public class GameControl : MonoBehaviour
         StartScreenBackdrop.gameObject.SetActive(false);
         HealthText.gameObject.SetActive(true);
         BoneSprite.gameObject.SetActive(true);
-        Time.timeScale = 1;
     }
 
     public void ResetGame() {
@@ -103,8 +110,18 @@ public class GameControl : MonoBehaviour
         string sceneName = SceneManager.GetActiveScene().name;
         if (sceneName == "Level0") {
             SceneManager.LoadScene("Level1");
+        } else if (sceneName == "Level1") {
+            SceneManager.LoadScene("Level2");
+        } else if (sceneName == "Level2") {
+            SceneManager.LoadScene("Level3");
         } else {
             SceneManager.LoadScene("Level0");
         }
+    }
+
+    public void WinGame() {
+        WinScreen.gameObject.SetActive(true);
+        Time.timeScale = 0;
+        isGameWon = true;
     }
 }
