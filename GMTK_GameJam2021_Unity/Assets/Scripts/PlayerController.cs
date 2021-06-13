@@ -109,6 +109,9 @@ public class PlayerController : MonoBehaviour
         isGrounded = GroundCheck();
         PlayerAnimation();
         changeColor();
+
+        gameControllerInstance.GetComponent<GameControl>().setHealthText((int) health);
+        
     }
 
     void shootBullet()

@@ -9,7 +9,8 @@ public class GameControl : MonoBehaviour
     
     ObjectPooler bulletPooler;
     public GameObject bulletPrefab;
-    public TextMeshProUGUI GameOverText, StartScreenText, StartScreenSubText, PauseScreen;
+    public TextMeshProUGUI GameOverText, StartScreenText, StartScreenSubText, PauseScreen, HealthText, LevelText;
+    public GameObject BoneSprite;
     public GameObject StartScreenBackdrop;
 
     public GameObject player;
@@ -36,6 +37,14 @@ public class GameControl : MonoBehaviour
             isGamePaused = !isGamePaused;
             PauseGame();
         }
+    }
+
+    public void setHealthText(float health) {
+        if (health >= 0) {
+            HealthText.SetText(": " + health);
+        } else {
+            HealthText.SetText(": 0");
+        } 
     }
 
     public GameObject shootNewBullet(Vector3 bulletStartPosition, Vector2 bulletTravelVector) {
@@ -71,6 +80,8 @@ public class GameControl : MonoBehaviour
         StartScreenText.gameObject.SetActive(false);
         StartScreenSubText.gameObject.SetActive(false);
         StartScreenBackdrop.gameObject.SetActive(false);
+        HealthText.gameObject.SetActive(true);
+        BoneSprite.gameObject.SetActive(true);
         Time.timeScale = 1;
     }
 
