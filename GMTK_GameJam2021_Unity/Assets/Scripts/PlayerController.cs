@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -175,7 +176,11 @@ public class PlayerController : MonoBehaviour
          } else if (collidedObj.tag == "Enemy") {
             hurtByEnemy();
          } else if (collidedObj.tag == "Goal") {
-            this.gameControllerInstance.GetComponent<GameControl>().nextScene();
+            if (SceneManager.GetActiveScene().name == "Level3") {
+                this.gameControllerInstance.GetComponent<GameControl>().WinGame();
+            } else {
+                this.gameControllerInstance.GetComponent<GameControl>().nextScene();
+            }
          }
     }
 
